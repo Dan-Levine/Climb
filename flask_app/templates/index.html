@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Philosopher's Climb</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+  <div id="game-wrapper">
+    <!-- Resource bar showing current gold and level info -->
+    <header id="resource-bar">
+      <div id="gold-count">Gold: 0</div>
+      <div id="level-info">Level: 1</div>
+      <div id="run-status">Run Status: Ongoing</div>
+    </header>
+
+    <main id="game-container">
+      <!-- Puzzle grid goes here -->
+      <section id="grid-container"></section>
+
+      <!-- Symbol palette with available resources -->
+      <aside id="symbol-palette">
+        <h2>Symbols</h2>
+        <div id="symbol-list"></div>
+      </aside>
+    </main>
+
+    <!-- Rule builder and action buttons -->
+    <footer id="control-panel">
+      <section id="rule-builder">
+        <h2>Create Rule</h2>
+        <div id="rule-slots">
+          <div class="rule-slot" data-slot="source">Source</div>
+          <div class="rule-slot" data-slot="action">Action</div>
+          <div class="rule-slot" data-slot="target">Target</div>
+        </div>
+      </section>
+      <section id="action-buttons">
+        <button id="apply-rule" disabled>Apply Rule</button>
+        <button id="undo-action" disabled>Undo</button>
+        <button id="reset-level">Reset Level</button>
+        <button id="pause-menu">Pause</button>
+      </section>
+    </footer>
+  </div>
+
+  <!-- Include shared logic and main game scripts via Flask's static route -->
+  <script src="{{ url_for('static', filename='gameLogic.js') }}"></script>
+  <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>
